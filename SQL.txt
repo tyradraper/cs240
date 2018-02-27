@@ -1,0 +1,44 @@
+
+create table Users
+(
+	username varchar(255) not null primary key unique,
+	password varchar(255) not null,
+	email varchar(255) not null,
+	firstName varchar(255) not null,
+	lastName varchar(255) not null,
+	gender varchar(2) not null,
+	constraint ckgender check (gender in ('f', 'm')),
+	personID varchar(225) not null unique
+);
+
+create table Auth_Tokens
+(
+	token varchar(225) not null primary key unique,
+	username varchar(255) not null
+);
+
+create table Persons
+(
+	personID varchar(255) not null primary key unique,
+	descendant varchar(255) not null,
+	firstName varchar(255) not null,
+	lastName varchar(255) not null,
+	gender varchar(2) not null,
+	constraint ckgender check (gender in ('f', 'm')),
+	father varchar(255),
+	mother varchar(255),
+	spouse varchar(255)
+);
+
+create table Events
+(
+	eventID varchar(255) not null primary key unique,
+	descendant varchar(255) not null,
+	person varchar(255) not null,
+	latitude real not null,
+	longitude real not null,
+	country varchar(255) not null,
+	city varchar(255) not null,
+	eventType varchar(255) not null,
+	year int not null
+);

@@ -1,0 +1,5 @@
+com.example.tyra.familymap.dataaccess
+com.example.tyra.familymap.model
+com.example.tyra.familymap.service
+com.example.tyra.familymap.service.request
+com.example.tyra.familymap.service.result
